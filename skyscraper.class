@@ -1,0 +1,23 @@
+public class Calculator {
+    public static int calculateTotalAmount(int N, int M, int X) {
+        int totalAmount = 0;
+        int currentPrice = X;
+
+        for (int floor = 1; floor <= N; floor++) {
+            totalAmount += currentPrice;
+            if (floor % M == 0) {
+                currentPrice += 1000;
+            }
+        }
+
+        return totalAmount;
+    }
+    public static void main(String[] args) {
+        int N = 25;  // Количество этажей
+        int M = 3;   // Количество этажей для увеличения стоимости
+        int X = 1000;  // Стоимость квартиры на первом этаже
+
+        int totalAmount = calculateTotalAmount(N, M, X);
+        System.out.println("Выручка от продажи всех квартир:" + totalAmount);
+    }
+}
